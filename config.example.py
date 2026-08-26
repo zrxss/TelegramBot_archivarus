@@ -3,6 +3,7 @@ GEMINI_KEY = "your_gemini_key_here"
 MISTRAL_KEY = "your_mistral_key_here"
 TEACHER_ID = 123456789
 TG_PROXY = "your_tg_proxy_here"
+WHITE_LIST = ('your_ids_here',)
 
 cute_words_universal = [
     "Милашка,",

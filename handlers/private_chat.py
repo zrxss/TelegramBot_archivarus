@@ -10,14 +10,13 @@ import random
 import database
 
 from ai_engine import generate_answer
-from config import cute_words_universal
+from config import cute_words_universal, WHITE_LIST
 
 
 
 private_router = Router()
-private_router.message.filter(F.chat.type == "private")
-private_router.callback_query.filter(F.message.chat.type == "private")
-
+private_router.message.filter(F.chat.type == "private", F.from_user.id.in_(WHITE_LIST))
+private_router.callback_query.filter(F.message.chat.type == "private", F.from_user.id.in_(WHITE_LIST))
 
 
 @private_router.message(CommandStart())   # Старт бота
