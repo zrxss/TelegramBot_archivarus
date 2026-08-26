@@ -1,17 +1,19 @@
 import  asyncio
 from aiogram import Bot, Dispatcher
+from aiogram.client.session.aiohttp import AiohttpSession
 
 import os
 
-from config import TOKEN
+from config import TOKEN, TG_PROXY
 
 import database
 from handlers.private_chat import private_router
 from handlers.group_parser import group_router
 
 
+session = AiohttpSession(proxy=TG_PROXY)
 
-ruz_bot = Bot(token=TOKEN)
+ruz_bot = Bot(token=TOKEN, session=session)
 
 dp=Dispatcher()
 
